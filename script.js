@@ -1,9 +1,12 @@
 
+let peopleList;
+
 async function getData(){
     try {
         const response = await fetch("https://jsonplaceholder.typicode.com/users")
         const list = await response.json()
         // console.log(list)
+        peopleList = [...list]
         createList(list)
     } catch(err) {
         console.log(err);
@@ -27,7 +30,7 @@ const btnSearch = document.getElementById("btn_search");
 
 // CREO LA LISTA DA MANDARE SUL DOM
 
-let peopleList;
+
 
 function createList(data){
     peopleList = data;
@@ -47,13 +50,17 @@ console.log(choiceImput.value);
 
 btnSearch.addEventListener("click", () =>{
     const risultati = peopleList.filter((item) =>{
-        if (item.includes(imputSearch.value)){
-            return true
-        } else {
-            return false
+        switch (item) {
+            case item.name.include(imputSearch.value):
+                console.log("name");
+                break;
+        
+            default:
+                break;
         }
+        console.log(item);
     })
-    printResult(risultati);
+    // printResult(risultati);
 })
 
 
