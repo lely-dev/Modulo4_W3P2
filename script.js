@@ -43,43 +43,19 @@ function createList(data){
 
 // FUNZIONE PER LA RICERCA
 
-console.log(choiceImput.value.mail);
+console.log(choiceImput.value);
 
 btnSearch.addEventListener("click", () =>{
     const risultati = peopleList.filter((item) =>{
-        switch (choiceImput.value) {
-            case value = "name":
-                console.log("name");
-                break;
-            case value = "mail":
-                console.log("mail");
-                break;
-            case value = "username":
-                console.log("user");
-                break;
-        
-            default:
-                break;
+        if (item.includes(imputSearch.value)){
+            return true
+        } else {
+            return false
         }
     })
+    printResult(risultati);
 })
 
 
-
-
-
-// btnSearchBook.addEventListener("click", () => {
-//     const risultati = searchResult.filter((item) =>{
-//         if (item.title.includes(imputBooks.value)){
-//             return true
-//         } else {
-//             return false
-//         }
-//     })
-//     printResult(risultati);
-// })
-
-
-// window.onload(getData());
 
 getData();
